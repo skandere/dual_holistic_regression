@@ -1,0 +1,131 @@
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 23:29:17 2021
+
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 23:29:17 2021
+
+Gurobi Optimizer version 9.0.3 build v9.0.3rc0 (linux64)
+Optimize a model with 27 rows, 51 columns and 151 nonzeros
+Model fingerprint: 0x9ad555a4
+Variable types: 1 continuous, 50 integer (50 binary)
+Coefficient statistics:
+  Matrix range     [8e-04, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 2e+02]
+Presolve time: 0.00s
+Presolved: 27 rows, 51 columns, 151 nonzeros
+Variable types: 1 continuous, 50 integer (50 binary)
+
+Root relaxation: objective 1.590934e+02, 19 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  160.06717    0    2          -  160.06717      -     -    0s
+     0     2  160.06717    0    2          -  160.06717      -     -    0s
+*   81    66              11     163.4279448  163.16883  0.16%   8.2    4s
+*   90    74              14     163.4149154  163.16883  0.15%   7.8    4s
+*   95    74              13     163.3184106  163.16883  0.09%   7.9    5s
+*  158    66              13     163.3025431  163.23844  0.04%   7.5    7s
+
+Cutting planes:
+  Lazy constraints: 160
+
+Explored 229 nodes (1680 simplex iterations) in 9.25 seconds
+Thread count was 4 (of 8 available processors)
+
+Solution count 4: 163.303 163.318 163.415 163.428 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.633025431412e+02, best bound 1.632890576253e+02, gap 0.0083%
+
+User-callback calls 607, time in user-callback 9.11 sec
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 23:30:44 2021
+
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 23:30:44 2021
+
+Gurobi Optimizer version 9.0.3 build v9.0.3rc0 (linux64)
+Optimize a model with 27 rows, 51 columns and 151 nonzeros
+Model fingerprint: 0x9ad555a4
+Variable types: 1 continuous, 50 integer (50 binary)
+Coefficient statistics:
+  Matrix range     [8e-04, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 2e+02]
+Presolve time: 0.00s
+Presolved: 27 rows, 51 columns, 151 nonzeros
+Variable types: 1 continuous, 50 integer (50 binary)
+
+Root relaxation: objective 1.590934e+02, 19 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  160.06717    0    2          -  160.06717      -     -    0s
+     0     2  160.06717    0    2          -  160.06717      -     -    0s
+*   81    66              11     163.4279448  163.16883  0.16%   8.2    4s
+*   90    74              14     163.4149154  163.16883  0.15%   7.8    4s
+*   95    74              13     163.3184106  163.16883  0.09%   7.9    4s
+   136    75     cutoff    9       163.31841  163.18526  0.08%   7.2    6s
+*  158    66              13     163.3025431  163.23844  0.04%   7.5    7s
+
+Cutting planes:
+  Lazy constraints: 160
+
+Explored 229 nodes (1680 simplex iterations) in 8.57 seconds
+Thread count was 4 (of 8 available processors)
+
+Solution count 4: 163.303 163.318 163.415 163.428 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.633025431412e+02, best bound 1.632890576253e+02, gap 0.0083%
+
+User-callback calls 649, time in user-callback 8.38 sec
+
+Gurobi 9.0.3 (linux64) logging started Fri Feb 26 00:40:31 2021
+
+
+Gurobi 9.0.3 (linux64) logging started Fri Feb 26 00:40:31 2021
+
+Gurobi Optimizer version 9.0.3 build v9.0.3rc0 (linux64)
+Optimize a model with 27 rows, 51 columns and 151 nonzeros
+Model fingerprint: 0x9ad555a4
+Variable types: 1 continuous, 50 integer (50 binary)
+Coefficient statistics:
+  Matrix range     [8e-04, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 2e+02]
+Presolve time: 0.00s
+Presolved: 27 rows, 51 columns, 151 nonzeros
+Variable types: 1 continuous, 50 integer (50 binary)
+
+Root relaxation: objective 1.590934e+02, 19 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  160.06717    0    2          -  160.06717      -     -    0s
+     0     2  160.06717    0    2          -  160.06717      -     -    0s
+*   81    66              11     163.4279448  163.16883  0.16%   8.2    5s
+*   90    74              14     163.4149154  163.16883  0.15%   7.8    5s
+*   95    74              13     163.3184106  163.16883  0.09%   7.9    6s
+*  158    66              13     163.3025431  163.23844  0.04%   7.5    9s
+   199    34     cutoff    4       163.30254  163.27482  0.02%   7.7   10s
+
+Cutting planes:
+  Lazy constraints: 160
+
+Explored 229 nodes (1680 simplex iterations) in 11.04 seconds
+Thread count was 4 (of 8 available processors)
+
+Solution count 4: 163.303 163.318 163.415 163.428 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.633025431412e+02, best bound 1.632890576253e+02, gap 0.0083%
+
+User-callback calls 586, time in user-callback 10.90 sec

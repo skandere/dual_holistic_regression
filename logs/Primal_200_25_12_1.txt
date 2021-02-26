@@ -1,0 +1,177 @@
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 20:25:38 2021
+
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 20:25:38 2021
+
+Gurobi Optimizer version 9.0.3 build v9.0.3rc0 (linux64)
+Optimize a model with 101 rows, 75 columns and 275 nonzeros
+Model fingerprint: 0x120e632e
+Model has 325 quadratic objective terms
+Variable types: 25 continuous, 50 integer (50 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [4e-02, 2e+00]
+  QObjective range [6e-03, 2e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+01, 1e+03]
+Found heuristic solution: objective 7.8520016
+Presolve time: 0.02s
+Presolved: 101 rows, 75 columns, 275 nonzeros
+Presolved model has 325 quadratic objective terms
+Variable types: 25 continuous, 50 integer (50 binary)
+
+Root relaxation: objective 3.647405e+00, 195 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    3.64741    0   37    7.85200    3.64741  53.5%     -    0s
+H    0     0                       7.1365184    3.64741  48.9%     -    0s
+H    0     0                       7.0431926    3.64741  48.2%     -    0s
+H    0     0                       7.0391549    3.64741  48.2%     -    0s
+H    0     0                       7.0325665    3.64741  48.1%     -    0s
+H    0     0                       6.7690413    3.64741  46.1%     -    0s
+H    0     0                       6.4571240    3.64741  43.5%     -    0s
+H    0     0                       6.1125108    3.64741  40.3%     -    0s
+H    0     0                       5.9591457    3.64741  38.8%     -    0s
+H    0     0                       4.0461773    3.64741  9.86%     -    0s
+     0     2    3.64741    0   37    4.04618    3.64741  9.86%     -    0s
+H  243    84                       4.0252151    3.75040  6.83%   4.7    0s
+
+Explored 1893 nodes (8589 simplex iterations) in 0.27 seconds
+Thread count was 4 (of 8 available processors)
+
+Solution count 8: 4.02522 4.04618 5.95915 ... 7.852
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.025215137624e+00, best bound 4.025215137624e+00, gap 0.0000%
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 21:43:55 2021
+
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 21:43:55 2021
+
+Gurobi Optimizer version 9.0.3 build v9.0.3rc0 (linux64)
+Optimize a model with 101 rows, 75 columns and 275 nonzeros
+Model fingerprint: 0x85a6324e
+Model has 325 quadratic objective terms
+Variable types: 25 continuous, 50 integer (50 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [9e-02, 1e+00]
+  QObjective range [4e-03, 2e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+01, 1e+03]
+Found heuristic solution: objective 5.2611693
+Presolve time: 0.02s
+Presolved: 101 rows, 75 columns, 275 nonzeros
+Presolved model has 325 quadratic objective terms
+Variable types: 25 continuous, 50 integer (50 binary)
+
+Root relaxation: objective 2.885953e+00, 211 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    2.88595    0   38    5.26117    2.88595  45.1%     -    0s
+H    0     0                       4.0399268    2.88595  28.6%     -    0s
+H    0     0                       3.8819465    2.88595  25.7%     -    0s
+H    0     0                       3.2889510    2.88595  12.3%     -    0s
+     0     2    2.88595    0   38    3.28895    2.88595  12.3%     -    0s
+H  127    59                       3.2452008    2.88826  11.0%   4.5    0s
+H  433   158                       3.2113547    3.00495  6.43%   5.2    0s
+
+Explored 3449 nodes (14857 simplex iterations) in 0.28 seconds
+Thread count was 4 (of 8 available processors)
+
+Solution count 6: 3.21135 3.2452 3.28895 ... 5.26117
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.211354733510e+00, best bound 3.211354733510e+00, gap 0.0000%
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 22:44:19 2021
+
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 22:44:19 2021
+
+Gurobi Optimizer version 9.0.3 build v9.0.3rc0 (linux64)
+Optimize a model with 101 rows, 75 columns and 275 nonzeros
+Model fingerprint: 0x85a6324e
+Model has 325 quadratic objective terms
+Variable types: 25 continuous, 50 integer (50 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [9e-02, 1e+00]
+  QObjective range [4e-03, 2e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+01, 1e+03]
+Found heuristic solution: objective 5.2611693
+Presolve time: 0.03s
+Presolved: 101 rows, 75 columns, 275 nonzeros
+Presolved model has 325 quadratic objective terms
+Variable types: 25 continuous, 50 integer (50 binary)
+
+Root relaxation: objective 2.885953e+00, 211 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    2.88595    0   38    5.26117    2.88595  45.1%     -    0s
+H    0     0                       4.0399268    2.88595  28.6%     -    0s
+H    0     0                       3.8819465    2.88595  25.7%     -    0s
+H    0     0                       3.2889510    2.88595  12.3%     -    0s
+     0     2    2.88595    0   38    3.28895    2.88595  12.3%     -    0s
+H  127    59                       3.2452008    2.88826  11.0%   4.5    0s
+H  433   158                       3.2113547    3.00495  6.43%   5.2    0s
+
+Explored 3449 nodes (14857 simplex iterations) in 0.27 seconds
+Thread count was 4 (of 8 available processors)
+
+Solution count 6: 3.21135 3.2452 3.28895 ... 5.26117
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.211354733510e+00, best bound 3.211354733510e+00, gap 0.0000%
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 23:22:30 2021
+
+
+Gurobi 9.0.3 (linux64) logging started Thu Feb 25 23:22:30 2021
+
+Gurobi Optimizer version 9.0.3 build v9.0.3rc0 (linux64)
+Optimize a model with 101 rows, 75 columns and 275 nonzeros
+Model fingerprint: 0x85a6324e
+Model has 325 quadratic objective terms
+Variable types: 25 continuous, 50 integer (50 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [9e-02, 1e+00]
+  QObjective range [4e-03, 2e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+01, 1e+03]
+Found heuristic solution: objective 5.2611693
+Presolve time: 0.03s
+Presolved: 101 rows, 75 columns, 275 nonzeros
+Presolved model has 325 quadratic objective terms
+Variable types: 25 continuous, 50 integer (50 binary)
+
+Root relaxation: objective 2.885953e+00, 211 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    2.88595    0   38    5.26117    2.88595  45.1%     -    0s
+H    0     0                       4.0399268    2.88595  28.6%     -    0s
+H    0     0                       3.8819465    2.88595  25.7%     -    0s
+H    0     0                       3.2889510    2.88595  12.3%     -    0s
+     0     2    2.88595    0   38    3.28895    2.88595  12.3%     -    0s
+H  127    59                       3.2452008    2.88826  11.0%   4.5    0s
+H  433   158                       3.2113547    3.00495  6.43%   5.2    0s
+
+Explored 3449 nodes (14857 simplex iterations) in 0.26 seconds
+Thread count was 4 (of 8 available processors)
+
+Solution count 6: 3.21135 3.2452 3.28895 ... 5.26117
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.211354733510e+00, best bound 3.211354733510e+00, gap 0.0000%
