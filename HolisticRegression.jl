@@ -1,9 +1,11 @@
 module HolisticRegression
 
-export compute_dual, compute_primal
+export compute_dual, compute_primal, get_t_α, get_σ_X
 
+using Random, Distributions
 using LinearAlgebra
 using Gurobi, JuMP
+using StatsBase
 using Optim
 
 gurobi_env = Gurobi.Env()
@@ -28,6 +30,26 @@ function get_support(s)
     return resize!(supp, count_supp-1), resize!(supp_c, count_supp_c-1)
 end
 
+function get_t_α(n, p, α)
+    return quantile(TDist(n-p), 1 - α/2)
+end
+
+function get_σ_X(X, y, γ)
+    n, p = size(X)
+    
+    # Estimator σ
+    M_inv = inv(I/γ + X'X)
+    σ_tilde = sqrt((y'*(I - X*M_inv*X')*y)/(n-p))
+    σ_X = σ_tilde * sqrt.(diag(M_inv))
+    
+    return σ_X
+end
+
+function get_R2(y_pred, y_true, y_train)
+    SS_res = norm(y_true .- y_pred)
+    SS_tot = norm(y_true .- mean(y_train))
+    return 1 - (SS_res/SS_tot)^2
+end
 
 function create_gurobi_model(; TimeLimit=-1, LogFile=nothing)
     model = Model(optimizer_with_attributes(() -> Gurobi.Optimizer(gurobi_env)));
@@ -158,20 +180,19 @@ function compute_dual(X_p, y, k, γ, σ_X_p; LogFile=nothing, WarmStart=:None, T
     # Outer problem
     miop = create_gurobi_model(;LogFile=LogFile, TimeLimit=TimeLimit)
     @variable(miop, s[1:2p], Bin)
-    @variable(miop, t >= -C)
-    @constraint(miop, sum(s) <= k)
-    @constraint(miop, [i=1:p], s[i]+s[p+i]<=1)
+    @variable(miop, t)
+    
+    t0 = -C
+    s0 = zeros(2p)
     
     # Initial solution
     if (WarmStart == :RidgeStart)
-        s0 = zeros(2p)
         β_ridge = inv(I/γ + M_p)*b_p
         s0[findall(x -> x>0, β_ridge)] .= 1.0
         s0[findall(x -> x<0, β_ridge) .+ p] .= 1.0
     elseif (WarmStart == :PrimalStart)
-        s0 = compute_warm_start_primal(M_p, b_p, k, γ, σ_X_p, 20; LogFile=LogFile) # TODO: change time limit
+        s0 .= compute_warm_start_primal(M_p, b_p, k, γ, σ_X_p, 20; LogFile=LogFile) # TODO: change time limit
     else 
-        s0 = zeros(2p)
         s0[1:k] .= 1
     end
 
@@ -180,10 +201,8 @@ function compute_dual(X_p, y, k, γ, σ_X_p; LogFile=nothing, WarmStart=:None, T
     D_s, b_s, σ_X_s = inv(I/γ + M[supp, supp]), b[supp], σ_X[supp]
     λ_s0, g_s0 = g_s(D_s, b_s, σ_X_s; GD=true)
     ∇g_s0 = ∇g_s(supp, supp_c, b, M, λ_s0, D_s, σ_X_s, γ)
-    offset = g_s0 - sum(∇g_s0[supp])
-    
-    @constraint(miop, t >= ∇g_s0's + offset)
-    @objective(miop, Min, t + C)
+    offset = g_s0 - sum(∇g_s0[j]*s0[j] for j=1:2p)
+
     
     # Cutting planes    
     function outer_approximation(cb_data)
@@ -196,14 +215,26 @@ function compute_dual(X_p, y, k, γ, σ_X_p; LogFile=nothing, WarmStart=:None, T
         D_s, b_s, σ_X_s = inv(I/γ + M[supp, supp]), b[supp], σ_X[supp]
         λ_s_val, g_s_val = g_s(D_s, b_s, σ_X_s; GD=true)
         ∇g_s_val = ∇g_s(supp, supp_c, b, M, λ_s_val, D_s, σ_X_s, γ)
-        offset = g_s_val - sum(∇g_s_val[supp])
+        offset = g_s_val - sum(∇g_s_val[j]*s_val[j] for j=1:2p)
         
-        con = @build_constraint(t >= ∇g_s_val's + offset)
+        con = @build_constraint(t >= sum(∇g_s_val[j]*s[j] for j=1:2p) + offset)
         MOI.submit(miop, MOI.LazyConstraint(cb_data), con)
         
     end
     
     MOI.set(miop, MOI.LazyConstraintCallback(), outer_approximation)
+
+    @constraint(miop, t >= -C)
+    @constraint(miop, sum(s) <= k)
+    @constraint(miop, [i=1:p], s[i] + s[p+i] <= 1)
+    
+    @constraint(miop, t >= sum(∇g_s0[j]*s[j] for j=1:2p) + offset)
+    
+    set_start_value.(miop[:s], s0)
+    set_start_value(miop[:t], g_s0)
+
+    @objective(miop, Min, t + C)
+    
     optimize!(miop)
     
     s_opt = value.(miop[:s])
